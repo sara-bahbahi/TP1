@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>QCM</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="exo1.css">
+    </head>
+    <body>
+    <form>
+        <h1>QCM</h1>
+        <h3>les questions à choix multiples</h3>
+        <div >
+        <p><span class="colorer">Question 1 :</span> Quelles balises se placent dans le head ?</p> 
+        <div class="mycontainer"><input type="checkbox" name="Q1" value="Q11"> title</div>
+        <div class="mycontainer"><input type="checkbox" name="Q1" value="Q12"> p</div>
+        <div class="mycontainer"><input type="checkbox" name="Q1" value="Q13"> meta</div>
+        </div>
+        
+        <div>
+        <p><span class="colorer">Question 2 :</span> Quelles balises sont auto-fermantes ?</p>
+         <div class="mycontainer"><input type="checkbox" name="Q2" value="Q21"> img</div>
+         <div class="mycontainer"><input type="checkbox" name="Q2" value="Q22"> a</div>
+         <div class="mycontainer"><input type="checkbox" name="Q2" value="Q23"> br</div>
+        </div>
+       
+        <div>
+        <p><span class="colorer">Question 3 :</span>  Quels attributs sont valides sur une balise a ? </p>
+         <div class="mycontainer"><input type="checkbox" name="Q3" value="Q31"> src</div>
+         <div class="mycontainer"><input type="checkbox" name="Q3" value="Q32"> rel</div>
+         <div class="mycontainer"><input type="checkbox" name="Q3" value="Q33"> href</div>
+         </div>
+      
+        <h3>les questions à un seule choix </h3>
+        <div>
+        <p><span class="colorer">Question 4 :</span> Quel attribut permet d'ouvrir un lien dans un nouvel onglet ?</p>
+         <div class="mycontainer"><input type="radio" name="Q4" value="Q41">open="new"</div>
+         <div class="mycontainer"><input type="radio" name="Q4" value="Q42">href="_new"</div>
+         <div class="mycontainer"><input type="radio" name="Q4" value="Q43">target="_blank"</div>
+        </div>
+        
+        <div>
+        <p><span class="colorer">Question 5 :</span> Quel est le rôle de l'attribut alt d'une balise img ?</p>
+         <div class="mycontainer"><input type="radio" name="Q5" value="Q51">Donner l'adresse de l'image</div>
+         <div class="mycontainer"><input type="radio" name="Q5" value="Q52">Décrire l'image en texte</div>
+         <div class="mycontainer"><input type="radio" name="Q5" value="Q53">Ajouter une bordure</div>
+        </div>
+        
+        <input type="reset" class="button" name="effacer" value="initialiser le QCM">
+        <input type="button" class="button2" name="corriger" value="afficher la correction" onclick="window.open('correction.html', '_blank')">
+        <input type="button" class="button2" name="corriger2" value="afficher votre résultats" onclick="resultat()">
+    </form>
+
+    <script>
+    function resultat() {
+        var q1 = document.getElementsByName("Q1");
+        var q2 = document.getElementsByName("Q2");
+        var q3 = document.getElementsByName("Q3");
+        var q4 = document.getElementsByName("Q4");
+        var q5 = document.getElementsByName("Q5");
+        var fenetre = window.open("resultats.html", "_blank");
+        var i=0;
+        fenetre.document.write("<body style='background-color: rgb(224, 214, 224);'>");
+        fenetre.document.write("<h2 style='color: purple;'>Vos résultats :</h2>");
+        
+       
+            if(q1[0].checked && q1[2].checked && !q1[1].checked ){
+                 fenetre.document.write("la réponse de question 1 est correcte !<br>");
+                 i=i+1;
+                
+            }else{
+                fenetre.document.write("la réponse de question 1 est fausse !<br>");
+            }
+        
+        
+            if(q2[0].checked && q2[2].checked && !q2[1].checked ){
+                fenetre.document.write("la réponse de question 2 est correcte !<br>");
+                 i=i+1;
+            }else{
+                fenetre.document.write("la réponse de question 2 est fausse !<br>");
+            }
+        
+        
+            if(q3[1].checked && q3[2].checked && !q3[0].checked ){
+                fenetre.document.write("la réponse de question 3 est correcte !<br>");
+                 i=i+1;
+            }else{
+                fenetre.document.write("la réponse de question 3 est fausse !<br>");
+            }
+
+        
+            if(!q4[1].checked && q4[2].checked && !q4[0].checked ){
+                fenetre.document.write("la réponse de question 4 est correcte !<br>");
+                 i=i+1;
+            }else{
+                fenetre.document.write("la réponse de question 4 est fausse !<br>");
+            }
+
+        
+            if(!q5[0].checked && !q5[2].checked && q5[1].checked ){
+                fenetre.document.write("la réponse de question 5 est correcte !<br>");
+                i=i+1;
+            }else{
+                fenetre.document.write("la réponse de question 5 est fausse !<br>");
+            }
+
+        fenetre.document.write("Votre score est : "+i+"/5");
+        }
+
+       
+        
+    </script>
+    
+    </body>
+</html>
