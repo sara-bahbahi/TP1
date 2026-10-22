@@ -1,0 +1,27 @@
+
+
+
+.button{
+    margin-left: 150px;
+    margin-top: 60px;
+    padding: 6px 10px;
+    background-color:rgb(168, 115, 46) ;
+    color: ghostwhite;
+    font-weight: bold;
+    border-radius: 5px;
+
+}
+
+body{
+    background-color:bisque;
+}
+
+
+h1{
+    color: rgb(168, 115, 46);
+}
+
+h4{
+    color: rgb(85, 56, 19);
+}
+

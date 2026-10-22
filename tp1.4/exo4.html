@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Calcul et conversion de la somme de trois durées en jours, heures, minutes et secondes</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="exo4.css">
+</head>
+<body>
+    <form>
+    <h1>Calculer  la somme de trois mesures de temps données en heures, minutes et secondes</h1>
+    <h4>Entrer le premier temps :</h4>
+    
+    Heure(s) : <input type="number" id="h1"> Minute(s) : <input type="number" id="m1"> Seconde(s) : <input type="number" id="s1">
+
+    <h4>Entrer le deuxiéme temps :</h4>
+    
+    Heure(s) : <input type="number" id="h2"> Minute(s) :  <input type="number" id="m2"> Seconde(s) :  <input type="number" id="s2">
+    
+    <h4>Entrer le troisiéme temps :</h4>
+   
+     Heure(s) : <input type="number" id="h3"> Minute(s) :  <input type="number" id="m3"> Seconde(s) : <input type="number" id="s3">
+
+     <h4>Total des trois temps :</h4>
+    
+     Jour(s) : <input type="text" id="resultat4" readonly> Heure(s) : <input type="text" id="resultat1" readonly> Minute(s) :  <input type="text" id="resultat2" readonly>Seconde(s) :  <input type="text" id="resultat3" readonly>
+
+    <br>
+    <div class="buttons">
+    <input type="button" class="button" onclick="somme()" name="sommer" value="Somme" >
+    <input type="reset"  class="button" name="vider"  value="Effacer" >
+    </div>
+
+    <script>
+        function somme(){
+            var hs=Number(document.getElementById("h1").value)+Number(document.getElementById("h2").value)+Number(document.getElementById("h3").value);
+            var ms=Number(document.getElementById("m1").value)+Number(document.getElementById("m2").value)+Number(document.getElementById("m3").value);
+            var ss=Number(document.getElementById("s1").value)+Number(document.getElementById("s2").value)+Number(document.getElementById("s3").value);
+            var js=0;
+            if(ss>=60){
+                var i=Math.floor(ss / 60);
+                var j=ss%60;
+                ss=j;
+                ms=ms+i;
+            }
+            if(ms>=60){
+                var i=Math.floor(ms/60);
+                var j=ms%60;
+                ms=j;
+                hs=hs+i;
+            }
+            if(hs>=24){
+                var i=Math.floor(hs/24);
+                var j=hs%24;
+                hs=j;
+                js=js+i;
+            }
+
+            document.getElementById("resultat4").value=js;
+            document.getElementById("resultat1").value=hs;
+            document.getElementById("resultat2").value=ms;
+            document.getElementById("resultat3").value=ss;
+        }
+        
+    </script>
+    </form>
+</body>
+</html>
