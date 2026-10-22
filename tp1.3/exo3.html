@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>trier une liste</title>
+    <meta charset="UTF-8">
+    <style>
+        body{ background-color: rgb(243, 216, 225);}
+     
+    </style>
+</head>
+<body>
+<script>
+    const nbrs=new Array();
+
+    function trier(){
+        var temp=0;
+        for(var i=0;i<nbrs.length-1;i++){
+            for(var j=0;j<nbrs.length-1;j++){
+                 if(nbrs[j]>nbrs[j+1]){
+                     temp=nbrs[j];
+                     nbrs[j]=nbrs[j+1];
+                     nbrs[j+1]=temp;
+                 }
+            }
+        }
+        return nbrs;
+    }
+   
+    var n = Number(prompt("Entrer le nombre des éléments de votre liste", ""));
+    for(var i=0;i<n;i++){
+            nbrs[i]=Number(prompt("Entrer un nombre ",""));
+    }
+
+    document.write("Votre liste après le tri : ")
+    trier();
+    for(var i=0;i<n;i++){
+            document.write("<br>"+nbrs[i]);
+    }
+</script>
+</body>
+</html>
