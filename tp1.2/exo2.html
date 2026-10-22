@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>vérification de votre email</title>
+    <meta charset="UTF-8">
+    <style>
+        body{ background-color: rgb(243, 216, 225);}
+     
+    </style>
+</head>
+<body>
+<script>
+    var email=prompt("Entrez votre e_mail","");
+    var n=email.indexOf("@");
+    function condition1(){  // pour vérifier si @ existe
+        if(n>=0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function condition2(){ // pour vérifier s'ils existent des lettres avant @
+        var resultat=false;
+        for(var i=0;i<n;i++){
+            if(email.charAt(i)>='a' && email.charAt(i)<='z' || email.charAt(i)>='A' && email.charAt(i)<='Z' || email.charAt(i)>='0' && email.charAt(i)<='9' ){
+                resultat=true;
+            }
+        }
+        return resultat;
+    }
+
+    function condition3(){
+        var resultat=false;
+        for(var i=n+1;i<email.length;i++){
+            if(email.charAt(i)=="."){
+                resultat =true;
+            }
+        }
+        return resultat;
+    }
+
+
+    if(condition1()==true && condition2()==true && condition3()==true){
+        document.write("Votre adresse e_mail est valide !");
+    }else{
+        document.write("Votre adresse e_mail est unvalide !");
+    }
+
+       
+    
+</script>
+</body>
+</html>
